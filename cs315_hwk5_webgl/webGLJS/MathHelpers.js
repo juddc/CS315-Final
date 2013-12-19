@@ -76,3 +76,11 @@ function lineIntersectsCircle(a, b, center, radius) {
 		return false;
 	}
 }
+
+
+function vec3_swapYZ(vec) {
+	var tmp = vec[2];
+	vec[2] = vec[1];
+	vec[1] = tmp;
+	return vec;
+}

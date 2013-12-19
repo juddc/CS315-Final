@@ -1,0 +1,947 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"time",
+				"timeSinceLastFrame"
+			],
+			[
+				"outp",
+				"outputFile"
+			],
+			[
+				"Game",
+				"GameEngineSetup"
+			],
+			[
+				"unw",
+				"unwrapVector3"
+			],
+			[
+				"unwrap",
+				"unwrapConstColourValue"
+			],
+			[
+				"cppType",
+				"cppTypeConversion"
+			],
+			[
+				"cppCo",
+				"cppTypeConversion"
+			],
+			[
+				"cppTyp",
+				"cppTypeConversion"
+			],
+			[
+				"methodCall",
+				"methodCallString"
+			],
+			[
+				"re",
+				"returns"
+			],
+			[
+				"const",
+				"constructor"
+			],
+			[
+				"pro",
+				"properties"
+			],
+			[
+				"CppHe",
+				"CppHeaderParser"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"init",
+				"initialiseResourceGroup"
+			],
+			[
+				"getMicr",
+				"getMicrosecondsCPU"
+			],
+			[
+				"getMilli",
+				"getMillisecondsCPU"
+			],
+			[
+				"COLOUR",
+				"FBT_COLOUR"
+			],
+			[
+				"scene",
+				"sceneTypeMask"
+			],
+			[
+				"scen",
+				"sceneTypeMask"
+			],
+			[
+				"SceneMana",
+				"SceneManagerMetaData"
+			],
+			[
+				"log",
+				"logFileName"
+			],
+			[
+				"plug",
+				"pluginFileName"
+			],
+			[
+				"Compo",
+				"CompositorInstance_Listener"
+			],
+			[
+				"ext",
+				"externs_compositor"
+			],
+			[
+				"externs",
+				"externs_compositor"
+			],
+			[
+				"OgreCom",
+				"OgreCompositorInstance"
+			],
+			[
+				"SceneManager",
+				"SceneManager_Listener"
+			],
+			[
+				"e",
+				"Extension"
+			],
+			[
+				"def",
+				"defaultproperties	Snippet - defaultproperties"
+			],
+			[
+				"defaultpro",
+				"defaultproperties	Snippet - defaultproperties"
+			],
+			[
+				"defaultp",
+				"defaultproperties	Snippet - defaultproperties"
+			],
+			[
+				"array_key",
+				"array_key_exists"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"backg",
+				"background-origin"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "cs315_hwk5_webgl/gameJS/AlienPlanet.js",
+			"settings":
+			{
+				"buffer_size": 4382,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cs315_hwk5_webgl/gameJS/Camera.js",
+			"settings":
+			{
+				"buffer_size": 1035,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cs315_hwk5_webgl/gameJS/GameEngine.js",
+			"settings":
+			{
+				"buffer_size": 8567,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cs315_hwk5_webgl/webGLJS/MathHelpers.js",
+			"settings":
+			{
+				"buffer_size": 1743,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Remove Package"
+			],
+			[
+				"unr",
+				"UnrealScriptIDE: Settings - Default"
+			],
+			[
+				"unrea",
+				"UnrealScriptIDE: Keymap – Default"
+			],
+			[
+				"unreal",
+				"UnrealScriptIDE: Settings - User"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/Digit0.obj",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/blender_exporter.py",
+		"/D/Projects/Steamscape/Source/Assets/Spells/LaserStrike.py",
+		"/D/Projects/Steamscape/Source/Assets/PythonInterpreter/Examples/EditorExamples.py",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/simpleScene.json",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/Cube.obj",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/GameEngine.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/GameData.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/alienPlanetScene.json",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/index.html",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven_compiler.cmd",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameData/fragment_shader.glsl",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/data_compiler.py",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/Camera.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/docs.txt",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/Breakout.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameData/vertex_shader.glsl",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/Stormhaven-Tree02.002.obj",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/Stormhaven-Tree01.001.obj",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/Stormhaven-Tree01.obj",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/Zone-Stormhaven.obj",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/Cube.023.obj",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/BacklightSun.obj",
+		"/D/Projects/CS315/alienplanet/index.html",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/OutdoorScene.js",
+		"/D/Documents/Dropbox/School/CS281/cohen-asmt9.txt",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameJS/GameEngine.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/vertex_shader.glsl",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/fragment_shader.glsl",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameJS/Breakout.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/data_compiler.py",
+		"/D/Projects/CS315/cs315_hwk6/cs315_hwk6/cs315_hwk6_java/src/cs315/yourname/hwk6/PhongShader.java",
+		"/D/Documents/Dropbox/School/CS281/asmt10-calc.py",
+		"/D/Documents/Dropbox/School/CS281/cohen-asmt10.txt",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/index.html",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameJS/InputHandler.js",
+		"/D/Projects/CS315/cs315_final/index.html",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/GameEngine.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/OutdoorScene.html",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/outdoors_compiler.cmd",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/output.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/Breakout.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/GameData.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/GameDataTest.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/GameObject.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/README.txt",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/MathHelpers.js",
+		"/D/Projects/CS315/cs315_final/README.md",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/MessageHandler.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/vertex_shader.glsl",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/fragment_shader.glsl",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/ErrorHandler.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/cs315.css",
+		"/D/Projects/CS315/cs315_final/.gitignore",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/GameData1.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/ModelData.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/model_compiler.py",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/teapot.obj",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/cube.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/ModelData.obj",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/cube.obj",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/glScene.js",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gl-matrix-min.js",
+		"/C/Users/Judd/Desktop/url.htm",
+		"/C/Users/Judd/Desktop/Accounts.txt",
+		"/D/Projects/CS315/cs315_hwk6/cs315_hwk6/README.txt",
+		"/D/Documents/Dropbox/School/CS281/cohen-asmt8.txt",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreNode.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreNode.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreNode.pyx",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreCamera.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreCamera.pyx",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreRenderTarget.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreRenderTarget.pyx",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreRenderTarget.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreRoot.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreSceneManager.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreSceneManager.pyx",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreRoot.pyx",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreRenderWindow.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreLight.pxd",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreWindowEventUtilities.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreRenderSystem.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreRenderSystem.pyx",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreRenderSystem.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/ogre.cpp",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreLight.h",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreEntity.h",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreCamera.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreMovableObject.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreSceneNode.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreSceneNode.pyx",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreSceneManager.h",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreSceneNode.h",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreRoot.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreEntity.pyx",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreResourceGroupManager.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreEntity.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/enums.py",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreQuaternion.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/ogre_enums.py",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/externs/ogre_externs_scenemanager.pxd",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/src/OgreRenderWindow.cpp",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgrePixelFormat.pxd",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgrePixelFormat.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/test_header_parse.py",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/test.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreScriptCompiler.pyx",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreScriptTranslator.pyx",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/autogen/OgreScriptTranslator.pxd",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/enums.py",
+		"/D/Projects/Lib/ogre_src_v1-8-1/OgreMain/include/OgreCompositorLogic.h",
+		"/C/Python27/ipython.cmd",
+		"/C/Users/Judd/Desktop/ipython-1.1.0/setup.py",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/externs/externs_helpers.pxd",
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Python/New-Class.sublime-snippet",
+		"/C/Users/Judd/Desktop/extern.tmSnippet",
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Python/if-__name__-==-'__main__'.sublime-snippet",
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Snippets/__name__.tmSnippet",
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Snippets/self.tmSnippet",
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Syntaxes/Cython.tmLanguage",
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/info.plist",
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Preferences/Symbol List.tmPreferences",
+		"/C/Users/Judd/Desktop/Symbol List.tmPreferences",
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Preferences/Miscellaneous.tmPreferences",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/helpers/HelperFunctions.h",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/helpers/HelperFunctions.cpp",
+		"/D/Projects/OgreTests/E5/ogrepy/cyth/ogre.pyd"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"light",
+			"deg2rad",
+			"lookAt",
+			"position",
+			"10",
+			"6.5",
+			"Breakout",
+			"position",
+			"0.5",
+			"5 *",
+			"engine",
+			"45",
+			"lightPos",
+			"diff",
+			"[0]",
+			"5,",
+			"5",
+			"this.input",
+			"_keys",
+			"this",
+			"tStone",
+			"INPUT_FILES",
+			"breakout",
+			"Breakout",
+			"obj",
+			"objFile",
+			"convertObjFile",
+			"mMeshes",
+			"cube",
+			"alert",
+			"vFragColor",
+			"vVaryingNormal",
+			"vVaryingLightDir",
+			"1",
+			".cube",
+			"cube",
+			"canvas",
+			"this.canvas",
+			"gl =",
+			"null",
+			"requestAnimationFrame",
+			"drawFrame",
+			"mModelMatrix",
+			"null",
+			"mat4.create()",
+			"mModelMatrix",
+			"this.log",
+			"console.log",
+			"initShaders",
+			"drawMesh",
+			"drawFrame",
+			"initMeshes",
+			"mMeshes",
+			"mNormalHandle",
+			"mColorHandle",
+			"mPositionHandle",
+			"mMVMatrixHandle",
+			"mMVPMatrixHandle",
+			"shaderProgramHandle",
+			"mNormalHandle",
+			"mMVPMatrixHandle",
+			"mMVPMatrix",
+			"mMVMatrix",
+			"mProjectionMatrix",
+			"mViewMatrix",
+			"mMVPMatrix",
+			"mMVMatrix",
+			"mProjectionMatrix",
+			"mViewMatrix",
+			"mModelMatrix",
+			"cubeNormalBuffer",
+			"cubePositionBuffer",
+			"shaderProgramHandle",
+			"mNormalDataSize",
+			"mPositionDataSize",
+			"initShaders",
+			"var",
+			"VAR",
+			"var",
+			"vertexShaderCode",
+			"'),\n",
+			"\" +",
+			"\"",
+			"console.log(",
+			"script",
+			"3\n			(",
+			"size.",
+			"Quaternion",
+			"Entity",
+			".x",
+			"externs.Vector3",
+			"wrapVector3",
+			"Quaternion",
+			"wrapVector3",
+			"cam.",
+			"renderOneFrame",
+			"handleCamera",
+			"handleScene",
+			"wrapColour",
+			"class SceneManager",
+			"class RenderWindow",
+			"RenderWindow",
+			"window",
+			"Quaternion",
+			"Light",
+			"Camera",
+			"externs",
+			"Real",
+			"attachObject",
+			"externs",
+			"externs_scenemanager",
+			"SceneNode",
+			"wrapSceneNode",
+			"SceneNode",
+			"String",
+			"entity",
+			"..",
+			"Prefab_Cube",
+			"ResourceGroupManager",
+			"AUTODETECT_RESOURCE_GROUP_NAME",
+			"ResourceGroupManager",
+			"DEFAULT_RESOURCE_GROUP_NAME",
+			"AUTODET",
+			"ResourceGroupMan",
+			"resourcegroupmanager",
+			"resourcegroup",
+			"Entity",
+			"x"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ois."
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "cs315_hwk5_webgl/gameJS/AlienPlanet.js",
+					"settings":
+					{
+						"buffer_size": 4382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								976,
+								976
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "cs315_hwk5_webgl/gameJS/Camera.js",
+					"settings":
+					{
+						"buffer_size": 1035,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								747,
+								747
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "cs315_hwk5_webgl/gameJS/GameEngine.js",
+					"settings":
+					{
+						"buffer_size": 8567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4855,
+								4855
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2475.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "cs315_hwk5_webgl/webGLJS/MathHelpers.js",
+					"settings":
+					{
+						"buffer_size": 1743,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1059,
+								1059
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.UnrealScriptAutocomplete_panel":
+	{
+		"height": 100.0
+	},
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"mathhel",
+				"webGLJS/MathHelpers.js"
+			],
+			[
+				"gameeng",
+				"gameJS/GameEngine.js"
+			],
+			[
+				"gamedata",
+				"gameJS/GameData.js"
+			],
+			[
+				"alien",
+				"stormhaven/alienPlanetScene.json"
+			],
+			[
+				"camera",
+				"gameJS/Camera.js"
+			],
+			[
+				"engine",
+				"gameJS/GameEngine.js"
+			],
+			[
+				"docs",
+				"docs.txt"
+			],
+			[
+				"vert",
+				"gameData/vertex_shader.glsl"
+			],
+			[
+				"brea",
+				"cs315_hwk5_webgl/gameJS/Breakout.js"
+			],
+			[
+				"verte",
+				"cs315_hwk5_webgl/gameData/vertex_shader.glsl"
+			],
+			[
+				"breakout",
+				"cs315_hwk5_webgl/gameJS/Breakout.js"
+			],
+			[
+				"data",
+				"cs315_hwk5_webgl/data_compiler.py"
+			],
+			[
+				"break",
+				"cs315_hwk5_webgl/gameJS/Breakout.js"
+			],
+			[
+				"vertex",
+				"cs315_hwk5_webgl/gameData/vertex_shader.glsl"
+			],
+			[
+				"fragm",
+				"cs315_hwk5_webgl/gameData/fragment_shader.glsl"
+			],
+			[
+				"frag",
+				"cs315_hwk5_webgl/gameData/fragment_shader.glsl"
+			],
+			[
+				"index",
+				"cs315_hwk5_webgl/index.html"
+			],
+			[
+				"gameengi",
+				"cs315_hwk5_webgl/gameJS/GameEngine.js"
+			],
+			[
+				"gitig",
+				".gitignore"
+			],
+			[
+				"css",
+				"cs315_hwk5_webgl/cs315.css"
+			],
+			[
+				"compi",
+				"cs315_hwk5_webgl/data_compiler.py"
+			],
+			[
+				"datacom",
+				"cs315_hwk5_webgl/data_compiler.py"
+			],
+			[
+				"ccss",
+				"cs315_hwk5_webgl/cs315.css"
+			],
+			[
+				"ogrenode.h",
+				"OgreMain/include/OgreNode.h"
+			],
+			[
+				"node",
+				"cyth/autogen/OgreNode.pyx"
+			],
+			[
+				"rendertar",
+				"cyth/autogen/OgreRenderTarget.pyx"
+			],
+			[
+				"rendertarg",
+				"cyth/autogen/OgreRenderTarget.pxd"
+			],
+			[
+				"rendertarget",
+				"OgreMain/include/OgreRenderTarget.h"
+			],
+			[
+				"root",
+				"cyth/autogen/OgreRoot.pxd"
+			],
+			[
+				"sceneman",
+				"cyth/autogen/OgreSceneManager.pxd"
+			],
+			[
+				"scenemana",
+				"cyth/autogen/OgreSceneManager.pyx"
+			],
+			[
+				"renderwindow",
+				"cyth/autogen/OgreRenderWindow.pxd"
+			],
+			[
+				"rendersys",
+				"OgreMain/include/OgreRenderSystem.h"
+			],
+			[
+				"rendersyste",
+				"cyth/autogen/OgreRenderSystem.pxd"
+			],
+			[
+				"windowevent",
+				"OgreMain/include/OgreWindowEventUtilities.h"
+			],
+			[
+				"light",
+				"OgreMain/include/OgreLight.h"
+			],
+			[
+				"entity",
+				"OgreMain/include/OgreEntity.h"
+			],
+			[
+				"ogrecamera",
+				"cyth/autogen/OgreCamera.pxd"
+			],
+			[
+				"ogrenode.pxd",
+				"cyth/autogen/OgreNode.pxd"
+			],
+			[
+				"ogrenode",
+				"cyth/autogen/OgreNode.pyx"
+			],
+			[
+				"scenenode",
+				"OgreMain/include/OgreSceneNode.h"
+			],
+			[
+				"ogreroot",
+				"OgreMain/include/OgreRoot.h"
+			],
+			[
+				"movableobe",
+				"cyth/autogen/OgreMovableObject.pxd"
+			],
+			[
+				"resourcegroup",
+				"OgreMain/include/OgreResourceGroupManager.h"
+			],
+			[
+				"enums",
+				"cyth/autogen/enums.py"
+			],
+			[
+				"entitypyx",
+				"cyth/autogen/OgreEntity.pyx"
+			],
+			[
+				"quat",
+				"cyth/autogen/OgreQuaternion.pxd"
+			],
+			[
+				"scenemanapyx",
+				"cyth/autogen/OgreSceneManager.pyx"
+			],
+			[
+				"externs_",
+				"cyth/externs/ogre_externs_scenemanager.pxd"
+			],
+			[
+				"renderwindowp",
+				"OgreMain/src/OgreRenderWindow.cpp"
+			],
+			[
+				"pixelformat",
+				"OgreMain/include/OgrePixelFormat.h"
+			],
+			[
+				"ogrepixelformat",
+				"cyth/autogen/OgrePixelFormat.pxd"
+			],
+			[
+				"ogrescenepyx",
+				"cyth/autogen/OgreSceneManager.pyx"
+			],
+			[
+				"compositorlogic",
+				"OgreMain/include/OgreCompositorLogic.h"
+			],
+			[
+				"testhe",
+				"cyth/test_header_parse.py"
+			],
+			[
+				"externhe",
+				"cyth/externs/externs_helpers.pxd"
+			],
+			[
+				"ogre_scene",
+				"cyth/externs/ogre_externs_scenemanager.pxd"
+			],
+			[
+				"ogresceneman",
+				"OgreMain/include/OgreSceneManager.h"
+			],
+			[
+				"head",
+				"include/header.php"
+			],
+			[
+				"utpawn",
+				"UTGame/Classes/UTPawn.uc"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 185.0,
+	"status_bar_visible": true
+}

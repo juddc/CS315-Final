@@ -73,6 +73,32 @@ def convertFile(fileName):
     return "'%s': [\n\t%s].join(\"\")," % (shortName, ",\n\t".join(output))
 
 
+
+"""
+Adds a JSON file without converting it
+"""
+def convertJSONFile(fileName):
+    output = []
+
+    if not os.path.exists(fileName):
+        raise IOError("Could not get file data for '%s'. File does not exist." % fileName)
+
+    fileData = open(fileName, 'r')
+    for line in fileData:
+        output.append(line)
+
+    fileData.close()
+
+    if len(output) == 0:
+        output.append("")
+
+    shortName = os.path.basename(fileName)
+    assert len(shortName) > 0
+
+    return "'%s': %s\n," % (shortName, "".join(output))
+
+
+
 """
 Simply writes a string to a file.
 Replaces the original file's contents if it had any
@@ -105,7 +131,10 @@ def compileData(inputFiles):
     for fileName in inputFiles:
         print "Loading %s" % fileName
         try:
-            fileData = convertFile(fileName)
+            if (fileName.endswith(".json")):
+                fileData = convertJSONFile(fileName)
+            else:
+                fileData = convertFile(fileName)
         except IOError, e:
             print "ERROR: %s" % e
             fileData = "'%s':\n\t\"\"," % fileName

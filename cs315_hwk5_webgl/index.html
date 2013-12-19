@@ -3,6 +3,83 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css/cs315.css" />
 
+<script type="x-shader/x-vertex" id="vertex_shader">
+uniform mat4 uMVMatrix;    // A constant representing the modelview matrix. Used for calculating lights/shading
+uniform mat4 uMVPMatrix;   // A constant representing the combined modelview/projection matrix. We use this for positioning
+
+uniform vec3 uLightPos;    // light position
+
+attribute vec4 aPosition;  // Per-vertex position information we will pass in
+attribute vec3 aNormal;    // Per-vertex normal information we will pass in.
+attribute vec4 aColor;     // Per-vertex color information we will pass in.
+
+// all output variables:
+varying vec4 oPosition;
+varying vec4 oColor;        // the ultimate color of the vertex
+varying vec3 oNormal;
+varying vec3 oLightPos;
+
+
+void main() {
+	// precalculate the world space position
+	vec4 pos = uMVPMatrix * aPosition;
+	oPosition = pos;
+	gl_Position = pos;
+
+	// pass through the normal, color, and light position to the fragment shader
+	oNormal = aNormal;
+	oColor = aColor;
+	oLightPos = uLightPos;
+}
+</script>
+
+<script type="x-shader/x-fragment" id="fragment_shader">
+precision mediump float;  // don't need high precision
+
+const vec4 ambientColor = vec4(0.05, 0.05, 0.05, 1.0);
+const float shininess = 32.0;
+
+varying vec4 oPosition;
+varying vec4 oColor;
+varying vec3 oNormal;
+varying vec3 oLightPos;
+
+void main() {
+	// finalcolor starts with ambient
+	vec4 final = ambientColor;
+
+	// prenormalize the normal
+	vec3 normal = normalize(oNormal);
+
+	// figure out the light direction in relation to world space
+    vec3 lightDir = normalize(oLightPos - (oPosition.xyz / oPosition.w));
+
+    // get the ndotl value
+	float ndotl = max(0.0, dot(normal, lightDir));
+
+	// =========
+	//  DIFFUSE
+	// =========
+	vec4 diffuse = oColor * ndotl;
+	final += diffuse;
+
+	// ==========
+	//  SPECULAR
+	// ==========
+	vec3 vReflection = normalize(reflect(-lightDir, normal));
+	float spec = max(0.0, dot(normal, vReflection));
+
+	if (ndotl > 0.0) {
+		float fSpec = pow(spec, 32.0);
+		final += fSpec;
+	}
+
+	// final output
+	gl_FragColor = final;
+}
+</script>
+
+
 <!-- load external dependencies -->
 <script src="libs/jquery-1.10.2.min.js"></script>
 <script src="libs/gl-matrix-min.js"></script>
@@ -28,7 +105,7 @@
 <script src="gameJS/GameEngine.js"></script>
 
 <!-- finally, load the game -->
-<script src="gameJS/Breakout.js"></script>
+<script src="gameJS/AlienPlanet.js"></script>
 
 <script>
 
@@ -45,7 +122,7 @@ $(document).ready(function() {
 		InputSetup();             // 1. set up input handling
 		WebGLSetup(canvas);       // 2. set up WebGL
 		GameEngineSetup(canvas);  // 3. set up GameEngine
-		BreakoutSetup();          // 4. set up the actual game
+		AlienPlanetSetup();       // 4. set up the demo
 	}
 	else {
 		addErrorMessage("Could not load GameData.js. Did you run data_compiler.py?");
@@ -64,7 +141,7 @@ $(document).ready(function() {
 	<canvas id="glcanvas" width="800" height="600">
 		If you see this, your browser doesn't support HTML5 canvas elements!
 	</canvas>
-	<p id="credits">by Paul Makl and Judd Cohen</p>
+	<p id="credits">by Judd Cohen</p>
 </div>
 
 </body>

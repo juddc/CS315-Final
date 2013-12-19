@@ -60,8 +60,12 @@ function GameEngine(canvasNode) {
 			return;
 		}
 
+		// get shader data from script tags
+		var vs = document.getElementById("vertex_shader").text;
+		var fs = document.getElementById("fragment_shader").text;
+
 		// initialize shaders
-		this.shaderProgramHandle = this.initShaders(DATA['vertex_shader.glsl'], DATA['fragment_shader.glsl'],
+		this.shaderProgramHandle = this.initShaders(vs, fs,
 			["aPosition", "aColor", "aNormal"]);
 		
 		if (this.shaderProgramHandle < 0) {
@@ -172,11 +176,18 @@ function GameEngine(canvasNode) {
 			var obj = this.gameObjects[i];
 			// manipulate the model matrix
 			mat4.identity(this.mModelMatrix);
+
+			// convert rotations from blender's z-up
+			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(180.0), UNIT_Y);
+
 			mat4.translate(this.mModelMatrix, this.mModelMatrix, obj.position);
+
 			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[0]), UNIT_X);
 			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[1]), UNIT_Y);
 			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[2]), UNIT_Z);
+
 			mat4.scale(this.mModelMatrix, this.mModelMatrix, obj.scale);
+			
 			this.drawMesh(this.mMeshes[obj.mesh], obj.color);
 		};
 
