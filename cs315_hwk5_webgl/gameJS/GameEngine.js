@@ -90,16 +90,12 @@ function GameEngine(canvasNode) {
 		gl.enable(gl.CULL_FACE);
 		gl.enable(gl.DEPTH_TEST);
 
-		// use the aspect ratio to calculate the correct height
-		var height = this.canvas.width * this.ratio;
-		this.canvas.height = height;
-
-		// viewport setup
-		gl.viewport(0, 0, this.canvas.width, height);
-
 		// set up camera
 		this.camera = new Camera(this);
 		this.camera.recalculate(); // set up initial view and proj matrices
+
+		// precalculate the canvas size. this calls gl.viewport.
+		this.recalculateCanvasSize();
 
 		// default light
 		this.light = new Light();
@@ -111,23 +107,29 @@ function GameEngine(canvasNode) {
 		// set up a window-resize event callback to adjust the viewport if the window size changes
 		$(window).resize(function() {
 			clearTimeout(self.resizeTimer);
-			self.resizeTimer = setTimeout(function() {
-				var w = document.body.clientWidth;
-				var h = w * self.ratio; // recalculate to the height for the new width
-
-				// tell the canvas:
-				var canvas = $('#glcanvas')[0];
-				canvas.width = w;
-				canvas.height = h;
-
-				// tell the viewport:
-				gl.viewport(0, 0, w, h);
-
-				// tell the camera:
-				self.camera.recalculate(w, h);
-			}, 50);
+			// wait 25 ms then call recalculateCanvasSize.
+			// the wait is so that it doesn't get called a hundred times because we get
+			// spammed with resize events while the user is dragging the window.
+			self.resizeTimer = setTimeout(self.recalculateCanvasSize, 25);
 		});
 
+	};
+
+
+	this.recalculateCanvasSize = function() {
+		var w = window.innerWidth;
+		var h = window.innerHeight;
+		self.ratio = h / w; // recalculate a new ratio
+
+		// tell the canvas:
+		self.canvas.width = w;
+		self.canvas.height = h;
+
+		// tell the viewport:
+		gl.viewport(0, 0, w, h);
+
+		// tell the camera:
+		self.camera.recalculate(w, h);
 	};
 
 
@@ -224,6 +226,8 @@ function GameEngine(canvasNode) {
 
 		for (var i = this.gameObjects.length - 1; i >= 0; i--) {
 			var obj = this.gameObjects[i];
+
+			/*
 			// manipulate the model matrix
 			mat4.identity(this.mModelMatrix);
 
@@ -231,10 +235,25 @@ function GameEngine(canvasNode) {
 			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(180.0), UNIT_Y);
 
 			mat4.translate(this.mModelMatrix, this.mModelMatrix, obj.position);
-
 			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[0]), UNIT_X);
 			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[1]), UNIT_Y);
 			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[2]), UNIT_Z);
+			*/
+
+			//mat4.identity(this.mModelMatrix);
+			//mat4.translate(this.mModelMatrix, this.mModelMatrix, obj.position);
+
+			//var quatMat = mat3.create();
+			//var q = quat.clone(obj.orientation);
+			//var test = quat.str(q);
+			//q = quat_swapYZ(q);
+			//console.log(test + " --> " + quat.str(q));
+			//mat3.fromQuat(quatMat, q);
+			//mat4.multiply(this.mModelMatrix, this.mModelMatrix, mat3_to_mat4(quatMat));
+
+			mat4.fromRotationTranslation(this.mModelMatrix, obj.orientation, obj.position);
+
+			//mat4_swapYZ(this.mModelMatrix);
 
 			mat4.scale(this.mModelMatrix, this.mModelMatrix, obj.scale);
 			this.drawMesh(this.mMeshes[obj.mesh], obj.ambient, obj.diffuse, obj.specular, obj.shininess);

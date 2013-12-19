@@ -10,11 +10,26 @@ function Camera(gameEngine) {
 
     // camera config
     this.position = [0, 15, 0.1];
-    this.lookAt = [0.0, 0.0, 0.0];
+    this.orientation = quat.create();
     this.up = [0.0, 1.0, 0.0];
     this.near = 1.0;
     this.far = 100.0;
     this.fovy = 45.0;
+
+
+    this._getLookAtVector = function() {
+        quat.normalize(this.orientation, this.orientation);
+
+        // figure out where the quaternion is pointing
+        var dirVec = vec3.create();
+        vec3.transformQuat(dirVec, UNIT_Y, this.orientation);
+
+        // add it to the position
+        var lookVec = vec3.create();
+        vec3.add(lookVec, this.position, dirVec);
+
+        return lookVec;
+    };
 
 
     // must call recalculate after making any changes to the camera config
@@ -23,7 +38,7 @@ function Camera(gameEngine) {
         if (height == null) height = this.gameEngine.canvas.clientHeight;
 
         // view matrix:
-        mat4.lookAt(this.mViewMatrix, this.position, this.lookAt, this.up);
+        mat4.lookAt(this.mViewMatrix, this.position, this._getLookAtVector(), this.up);
 
         // projection matrix:
         var ratio = width / height;

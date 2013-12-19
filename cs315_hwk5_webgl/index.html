@@ -107,13 +107,12 @@ void main() {
 <script src="webGLJS/MathHelpers.js"></script>
 <script src="gameJS/InputHandler.js"></script>
 <script src="gameJS/MessageHandler.js"></script>
+<script src="gameJS/JSONScene.js"></script>
 
 <!-- load external files (precompiled into one javascript file) -->
 <script src="gameJS/GameData.js"></script>
 
 <!-- load internal dependencies -->
-<script src="gameJS/CircleCollider.js"></script>
-<script src="gameJS/RectangleCollider.js"></script>
 <script src="gameJS/Light.js"></script>
 <script src="gameJS/GameObject.js"></script>
 <script src="gameJS/Camera.js"></script>
@@ -148,8 +147,13 @@ $(document).ready(function() {
 		$("#game").hide();
 	}
 
-});
 
+	$("#start").click(function() {
+		$("#menu").fadeOut();
+	});
+
+	$("#menu").hide();
+});
 </script>
 </head>
 <body>
@@ -159,31 +163,20 @@ $(document).ready(function() {
 
 <div align="center" id="game">
 	<div id="menu">
-		<h1>Breakout Clash!</h1>
-		<p id="credits">by Paul Makl and Judd Cohen</p>
+		<h1>Alien Planet: Stormhaven</h1>
+		<p id="credits">by Judd Cohen</p>
 		<h2 id="controlheader">Controls</h2>
 		<p id="help">
-			<em>Player 1</em>:<br />
-				<strong>A</strong>: Move paddle up<br/>
-				<strong>Z</strong>: Move paddle down<br/>
-			<br />
-			<em>Player 2</em>:<br/>
-				<strong>K</strong>: Move paddle up<br/>
-				<strong>M</strong>: Move paddle down<br/>
-			<br />
-			<em>Adjust camera:</em><br />
-				<strong>T</strong>: Move camera back<br/>
-				<strong>G</strong>: Move camera forward<br/>
+			<strong>W</strong>: Move forward<br/>
+			<strong>A</strong>: Move left<br/>
+			<strong>S</strong>: Move backwards<br/>
+			<strong>D</strong>: Move right<br/>
 		</p>
 		<button id="start" class="gameControl">Start</button>
 	</div>
 	<canvas id="glcanvas" width="800" height="600">
 		If you see this, your browser doesn't support HTML5 canvas elements!
 	</canvas>
-	<div id="credits">by Judd Cohen</p>
-
-	</div>
-	
 </div>
 
 </body>

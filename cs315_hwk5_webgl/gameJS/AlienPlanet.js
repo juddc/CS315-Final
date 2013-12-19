@@ -1,3 +1,4 @@
+"use strict";
 
 // game global:
 var alien;
@@ -9,6 +10,9 @@ function AlienPlanet() {
 
 	// vars
 	this.camSpeed = 9.0;
+	this.camHoriz = 0;
+	this.camVert = 0;
+	this.lastMousePos = vec2.create();
 
 
 	this.init = function() {
@@ -17,36 +21,8 @@ function AlienPlanet() {
 
 		var sceneFile = 'alienPlanetScene.json';
 		//var sceneFile = 'simpleScene.json';
-		var SCENE = DATA[sceneFile]['objects'];
-		for (var i = SCENE.length - 1; i >= 0; i--) {
-			var data = SCENE[i];
-			var obj = new GameObject(data.name, data.name);
 
-			vec3_swapYZ(data.position);
-			vec3_swapYZ(data.rotation);
-			vec3_swapYZ(data.scale);
-
-			obj.position = vec3.clone(data.position);
-			obj.rotation = vec3.clone(data.rotation);
-			obj.scale = vec3.clone(data.scale);
-			this.scene.push(obj);
-
-			engine.addGameObject(obj);
-		};
-
-		var CAM = DATA[sceneFile]['camera'];
-		vec3_swapYZ(CAM.position);
-
-		engine.camera.position = vec3.clone(CAM.position);
-		engine.camera.lookAt = [30.5, 48.4, -13.67];
-		//engine.camera.lookAt = [0, 0, 0];
-		engine.camera.near = CAM.nearclip;
-		engine.camera.far = CAM.farclip;
-		engine.camera.fovy = 45.0;
-		engine.camera.recalculate();
-
-		//engine.light.position = vec3.clone(CAM.position);
-		engine.light.position = [10, 10, 50];
+		this.scene = loadJSONScene(sceneFile);
 
 		/*
 		// create the ball
@@ -87,68 +63,72 @@ function AlienPlanet() {
 	this.inputEvent = function(key, evt) {
 		//console.log(key);
 		//console.log(evt);
+
+		if (key == "Shift" && evt.type == "keydown") {
+			this.camSpeed = 30;
+		}
+		else if (key == "Shift" && evt.type == "keyup") {
+			this.camSpeed = 9;
+		}
 	};
 
 
 	this.update = function(timeSinceLastFrame) {
-		// check up/down keys for player 2
+		// movement
+		var movementVec = vec3.create();
+
 		if (input.keyIsDown("W")) {
-			engine.camera.position[1] += this.camSpeed * timeSinceLastFrame;
-			engine.camera.recalculate();
+			movementVec[2] += this.camSpeed * timeSinceLastFrame;
 		}
-		else if (input.keyIsDown("S")) {
-			engine.camera.position[1] -= this.camSpeed * timeSinceLastFrame;
-			engine.camera.recalculate();
+		if (input.keyIsDown("S")) {
+			movementVec[2] -= this.camSpeed * timeSinceLastFrame;
 		}
-		else if (input.keyIsDown("D")) {
-			engine.camera.position[0] += this.camSpeed * timeSinceLastFrame;
-			engine.camera.recalculate();
+		if (input.keyIsDown("D")) {
+			movementVec[0] -= this.camSpeed * timeSinceLastFrame;
 		}
-		else if (input.keyIsDown("A")) {
-			engine.camera.position[0] -= this.camSpeed * timeSinceLastFrame;
-			engine.camera.recalculate();
+		if (input.keyIsDown("A")) {
+			movementVec[0] += this.camSpeed * timeSinceLastFrame;
 		}
-
-		else if (input.keyIsDown("R")) {
+		if (input.keyIsDown("Space")) {
+			movementVec[1] += this.camSpeed * timeSinceLastFrame;
+		}
+		if (input.keyIsDown("C")) {
+			movementVec[1] -= this.camSpeed * timeSinceLastFrame;
+		}
+		// zooming/fov
+		if (input.keyIsDown("F")) {
 			engine.camera.fovy += timeSinceLastFrame;
-			engine.camera.recalculate();
 		}
-		else if (input.keyIsDown("F")) {
+		if (input.keyIsDown("R")) {
 			engine.camera.fovy -= timeSinceLastFrame;
+		}
+
+		if (input.keyIsDown("P")) {
+			this.camHoriz = -86.63001537322998;
+			this.camVert = -3.1150221824645996;
+			engine.camera.position = [-45.015682220458984, 53.40355682373047, -19.42580795288086];
+			engine.camera.orientation = [0.5274806022644043, 0.4709184765815735, -0.4988862872123718, 0.5011112093925476];
 			engine.camera.recalculate();
 		}
 
+		vec3.transformQuat(movementVec, [movementVec[0], movementVec[2], -movementVec[1]], engine.camera.orientation);
+		vec3.add(engine.camera.position, engine.camera.position, movementVec);
+		engine.camera.recalculate();
 
-		/*
-		// test collisions for each block
-		for (var i = this.blocks.length - 1; i >= 0; i--) {
-			var block = this.blocks[i];
-			var p1 = this.paddle1;
-			var p2 = this.paddle2;
+		// calculate where the mouse has moved since the last frame
+		var mouseDelta = vec2.create();
+		vec2.sub(mouseDelta, input.mousePos, this.lastMousePos);
 
-			// if the ball intersects with the block
-			if(this.ball.collider.intersects(block.collider)){//if (this.ball.collider.intersects(p1.collider) || this.ball.collider.intersects(p2.collider) ) {
-				this.dirFlip = !this.dirFlip; // flip ball direction
-				block.color = [0, 1, 1]; // debug: change block color for a sec
-			}
-			else {
-				block.color = [1, 0, 0]; // debug: reset ball color
-			}
+		if (input.keyIsDown("MouseButton")) {
+			this.camHoriz += mouseDelta[0] * 5 * timeSinceLastFrame;
+			this.camVert += mouseDelta[1] * 5 * timeSinceLastFrame;
+
+			engine.camera.orientation = quatFromEulerAngles(90, this.camVert, this.camHoriz);
+			engine.camera.recalculate();
 		}
 
-		// move ball based on the dirFlip boolean
-		if (this.dirFlip == true) {
-			this.ball.position[2] += 5 * timeSinceLastFrame;
-		}
-		else {
-			this.ball.position[2] -= 5 * timeSinceLastFrame;
-		}
-
-		// put the light right above the ball
-		engine.light.position[0] = this.ball.position[0];
-		engine.light.position[1] = this.ball.position[1] + 10.0;
-		engine.light.position[2] = this.ball.position[2];
-		*/
+		// save the mouse pos so we can get a delta next frame
+		this.lastMousePos = vec2.clone(input.mousePos);
 	};
 }
 

@@ -78,13 +78,114 @@ function lineIntersectsCircle(a, b, center, radius) {
 }
 
 
+function quatAxis(q) {
+	var s = Math.sqrt(1.0 - q[3] * q[3]);
+	return [q[0]/s, q[1]/s, q[2]/s];
+}
+
+
+function quatAngle(q) {
+	return 2 * Math.acos(q[3]);
+}
+
+
+function mat3_to_mat4(m) {
+	return [
+		m[0], m[1], m[2], 0,
+		m[3], m[4], m[5], 0,
+		m[6], m[7], m[8], 0,
+		0,    0,    0,    1];
+}
+
+
 function vec3_swapYZ(vec) {
+	//var v = vec3.clone(vec);
+	//var rotMatrix = mat3.create();
+	//mat3.rotate(rotMatrix, rotMatrix, deg2rad(-180));
+
+	//var q = quatFromEulerAngles(0, 0, 0);
+	//vec3.transformQuat(vec, vec, q);
+
 	var tmp = vec[2];
-	vec[2] = vec[1];
+	vec[2] = -vec[1];
 	vec[1] = tmp;
+
+	//vec3.transformMat3(vec, vec, rotMatrix);
 	return vec;
 }
 
+
+function quat_swapYZ(q) {
+	if (q[0] == 0 && q[1] == 0 && q[2] == 0 && q[3] == 1) {
+		return q;
+	}
+	var axis = quatAxis(q);
+	var angle = quatAngle(q); // in radians
+	aiswap(axis, 1, 2); // swap y and z
+	axis[2] = -axis[2];
+	quat.setAxisAngle(q, axis, angle);
+	return q;
+}
+
+
+function mat4_swapYZ(mat) {
+	//[0, 1, 2, 3,
+	// 4, 5, 6, 7,
+	// 8, 9, 10,11,
+	// 12,13,14,15]
+
+	// swap second and third columns
+	aiswap(mat, 1, 2);
+	aiswap(mat, 5, 6);
+	aiswap(mat, 9, 10);
+	aiswap(mat, 13, 14);
+
+	// swap second and third rows
+	aiswap(mat, 4, 8);
+	aiswap(mat, 5, 9);
+	aiswap(mat, 6, 10);
+	aiswap(mat, 7, 11);
+}
+
+
+function mat3_swapYZ(mat) {
+	//[0, 1, 2,
+	// 3, 4, 5,
+	// 6, 7, 8]
+
+	// swap second and third columns
+	aiswap(mat, 1, 2);
+	aiswap(mat, 4, 5);
+	aiswap(mat, 7, 8);
+
+	// swap second and third rows
+	aiswap(mat, 3, 6);
+	aiswap(mat, 4, 7);
+	aiswap(mat, 5, 8);
+}
+
+
+// array index swap. takes an array and two indices and swaps in-place
+function aiswap(arr, i1, i2) {
+	var tmp = arr[i1];
+	arr[i1] = arr[i2];
+	arr[i2] = tmp;
+}
+
+
+function quatFromAxisAngle(axis, angle) {
+	var q = quat.create();
+	return quat.setAxisAngle(q, axis, deg2rad(angle));
+}
+
+
+function quatFromEulerAngles(x, y, z) {
+    var q = quat.create();
+    quat.rotateX(q, q, deg2rad(x));
+    quat.rotateY(q, q, deg2rad(y));
+    quat.rotateZ(q, q, deg2rad(z));
+    return q;
+}
 
 
 function clamp(val, min, max) {

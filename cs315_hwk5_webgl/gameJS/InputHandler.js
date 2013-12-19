@@ -18,10 +18,16 @@ function InputHandler() {
 	// a dict that contains keys that are currently pressed
 	this.keys = {};
 
+	// current mouse position
+	this.mousePos = vec2.create();
+
 
 	this.init = function() {
 		window.addEventListener('keydown', this._keyEvent);
 		window.addEventListener('keyup', this._keyEvent);
+		window.addEventListener('mousemove', this._mouseMoveEvent);
+		window.addEventListener('mousedown', this._mouseDownEvent);
+		window.addEventListener('mouseup', this._mouseUpEvent);
 	};
 
 
@@ -53,6 +59,37 @@ function InputHandler() {
 		// update any objects that want immediate notifications
 		for (var i = self.updateObjects.length - 1; i >= 0; i--) {
 			self.updateObjects[i].inputEvent(key, evt);
+		}
+	};
+
+
+	this._mouseMoveEvent = function(evt) {
+		self.mousePos[0] = evt.x;
+		self.mousePos[1] = evt.y;
+
+		// update any objects that want immediate notifications
+		for (var i = self.updateObjects.length - 1; i >= 0; i--) {
+			self.updateObjects[i].inputEvent("Mouse", evt);
+		}
+	};
+
+
+	this._mouseUpEvent = function(evt) {
+		delete self.keys["MouseButton"];
+
+		// update any objects that want immediate notifications
+		for (var i = self.updateObjects.length - 1; i >= 0; i--) {
+			self.updateObjects[i].inputEvent("MouseUp", evt);
+		}
+	};
+
+
+	this._mouseDownEvent = function(evt) {
+		self.keys["MouseButton"] = evt;
+
+		// update any objects that want immediate notifications
+		for (var i = self.updateObjects.length - 1; i >= 0; i--) {
+			self.updateObjects[i].inputEvent("MouseDown", evt);
 		}
 	};
 }

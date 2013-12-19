@@ -6,7 +6,7 @@ function GameObject(name, mesh, x, y) {
 	var xp = x || 0;
 	var yp = y || 0;
 	this.position = [xp, yp, 0];
-	this.rotation = [0, 0, 0]; // degrees
+	this.orientation = quat.create(); // quaternion
 	this.scale = [1, 1, 1];
 	this.collider = null;
 
@@ -28,7 +28,7 @@ function GameObject(name, mesh, x, y) {
 		return "<GameObject name=" + this.name +
 			", mesh=" + this.mesh +
 			", pos=[" + this.position +
-			"], rot=[" + this.rotation +
+			"], rot=[" + this.orientation +
 			"], scale=[" + this.scale + "]>";
 	}
 }
