@@ -19,29 +19,33 @@ body p {
 }
 
 
-#menu {
+#credits {
 	position: absolute;
 	z-index: 1000;
-	top: 80px;
-	left: 200px;
-	right: 200px;
-	padding: 50px;
-	background: rgba(0, 0, 0, 0.55);
-	box-shadow: 0 0 50px rgba(255, 255, 255, 0.75);
-	border-radius: 10px;
+	top: 5px;
+	right: 10px;
 	color: #fff;
+	text-align: right;
+}
+
+#title {
+	font-size: 22px;
 }
 
 #controlheader {
-	text-align: left;
-	width: 300px;
+	font-size: 20px;
+	font-style: italic;
 }
-
 
 #help {
-	text-align: left;
-	width: 300px;
+	position: absolute;
+	z-index: 1000;
+	bottom: 5px;
+	left: 10px;
+
+	color: #fff;
 }
+
 
 
 button.gameControl {

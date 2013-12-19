@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"lanter",
+				"lanternTimer"
+			],
+			[
+				"lant",
+				"lanternTimer"
+			],
+			[
+				"cam",
+				"camVert"
+			],
+			[
+				"tie",
+				"timeSinceLastFrame"
+			],
+			[
+				"key",
+				"keyIsDown"
+			],
+			[
 				"time",
 				"timeSinceLastFrame"
 			],
@@ -148,34 +168,10 @@
 	"buffers":
 	[
 		{
-			"file": "cs315_hwk5_webgl/gameJS/AlienPlanet.js",
+			"file": "cs315_hwk5_webgl/gameJS/GameData.js",
 			"settings":
 			{
-				"buffer_size": 4382,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "cs315_hwk5_webgl/gameJS/Camera.js",
-			"settings":
-			{
-				"buffer_size": 1035,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "cs315_hwk5_webgl/gameJS/GameEngine.js",
-			"settings":
-			{
-				"buffer_size": 8567,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "cs315_hwk5_webgl/webGLJS/MathHelpers.js",
-			"settings":
-			{
-				"buffer_size": 1743,
+				"buffer_size": 4700464,
 				"line_ending": "Windows"
 			}
 		}
@@ -232,21 +228,37 @@
 	},
 	"file_history":
 	[
-		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/Digit0.obj",
 		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/blender_exporter.py",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/README.txt",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/GameEngine.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/AlienPlanet.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/index.html",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/css/cs315.css",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/webGLJS/MathHelpers.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/JSONScene.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/GameObject.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/Camera.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/GameData.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/Light.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/alienPlanetScene.json",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/InputHandler.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/data_compiler.py",
+		"/D/Projects/CS315/alienplanet/.gitignore",
+		"/D/Projects/CS315/alienplanet/README.md",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/index.html.orig",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/vertex_shader.glsl",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/fragment_shader.glsl",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameJS/GameEngine.js",
+		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/docs.txt",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/data_compiler.py",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/docs.txt",
+		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/Digit0.obj",
 		"/D/Projects/Steamscape/Source/Assets/Spells/LaserStrike.py",
 		"/D/Projects/Steamscape/Source/Assets/PythonInterpreter/Examples/EditorExamples.py",
 		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/simpleScene.json",
 		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/Cube.obj",
-		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/GameEngine.js",
-		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/GameData.js",
-		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/alienPlanetScene.json",
-		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/index.html",
 		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven_compiler.cmd",
 		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameData/fragment_shader.glsl",
-		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/data_compiler.py",
-		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/Camera.js",
-		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/docs.txt",
 		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameJS/Breakout.js",
 		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/gameData/vertex_shader.glsl",
 		"/D/Projects/CS315/alienplanet/cs315_hwk5_webgl/stormhaven/Stormhaven-Tree02.002.obj",
@@ -258,11 +270,7 @@
 		"/D/Projects/CS315/alienplanet/index.html",
 		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/OutdoorScene.js",
 		"/D/Documents/Dropbox/School/CS281/cohen-asmt9.txt",
-		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameJS/GameEngine.js",
-		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/vertex_shader.glsl",
-		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameData/fragment_shader.glsl",
 		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/gameJS/Breakout.js",
-		"/D/Projects/CS315/cs315_final/cs315_hwk5_webgl/data_compiler.py",
 		"/D/Projects/CS315/cs315_hwk6/cs315_hwk6/cs315_hwk6_java/src/cs315/yourname/hwk6/PhongShader.java",
 		"/D/Documents/Dropbox/School/CS281/asmt10-calc.py",
 		"/D/Documents/Dropbox/School/CS281/cohen-asmt10.txt",
@@ -347,19 +355,7 @@
 		"/C/Python27/ipython.cmd",
 		"/C/Users/Judd/Desktop/ipython-1.1.0/setup.py",
 		"/D/Projects/OgreTests/E5/ogrepy/cyth/externs/externs_helpers.pxd",
-		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Python/New-Class.sublime-snippet",
-		"/C/Users/Judd/Desktop/extern.tmSnippet",
-		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Python/if-__name__-==-'__main__'.sublime-snippet",
-		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Snippets/__name__.tmSnippet",
-		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Snippets/self.tmSnippet",
-		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Syntaxes/Cython.tmLanguage",
-		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/info.plist",
-		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Preferences/Symbol List.tmPreferences",
-		"/C/Users/Judd/Desktop/Symbol List.tmPreferences",
-		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Cython/Preferences/Miscellaneous.tmPreferences",
-		"/D/Projects/OgreTests/E5/ogrepy/cyth/helpers/HelperFunctions.h",
-		"/D/Projects/OgreTests/E5/ogrepy/cyth/helpers/HelperFunctions.cpp",
-		"/D/Projects/OgreTests/E5/ogrepy/cyth/ogre.pyd"
+		"/C/Users/Judd/AppData/Roaming/Sublime Text 2/Packages/Python/New-Class.sublime-snippet"
 	],
 	"find":
 	{
@@ -377,6 +373,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"20px",
+			"h2",
+			"<p>",
+			"p",
+			"2",
+			"1",
+			"0",
+			"clear",
+			"oLightDir",
+			"uLightPos",
+			"lightPos",
+			"this.orientation",
+			"engine.camera.position",
+			"x",
+			"else",
+			"0",
+			"1",
+			"dirVec",
+			"directionVec",
+			"newLookAt",
+			"lookAt",
+			"directionVec",
+			"diffuse",
+			"ambient",
+			"this",
 			"light",
 			"deg2rad",
 			"lookAt",
@@ -479,32 +500,7 @@
 			"class SceneManager",
 			"class RenderWindow",
 			"RenderWindow",
-			"window",
-			"Quaternion",
-			"Light",
-			"Camera",
-			"externs",
-			"Real",
-			"attachObject",
-			"externs",
-			"externs_scenemanager",
-			"SceneNode",
-			"wrapSceneNode",
-			"SceneNode",
-			"String",
-			"entity",
-			"..",
-			"Prefab_Cube",
-			"ResourceGroupManager",
-			"AUTODETECT_RESOURCE_GROUP_NAME",
-			"ResourceGroupManager",
-			"DEFAULT_RESOURCE_GROUP_NAME",
-			"AUTODET",
-			"ResourceGroupMan",
-			"resourcegroupmanager",
-			"resourcegroup",
-			"Entity",
-			"x"
+			"window"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -523,50 +519,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "cs315_hwk5_webgl/gameJS/AlienPlanet.js",
+					"file": "cs315_hwk5_webgl/gameJS/GameData.js",
 					"settings":
 					{
-						"buffer_size": 4382,
+						"buffer_size": 4700464,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								976,
-								976
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "cs315_hwk5_webgl/gameJS/Camera.js",
-					"settings":
-					{
-						"buffer_size": 1035,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								747,
-								747
+								0,
+								0
 							]
 						],
 						"settings":
@@ -577,60 +546,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "cs315_hwk5_webgl/gameJS/GameEngine.js",
-					"settings":
-					{
-						"buffer_size": 8567,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4855,
-								4855
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2475.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "cs315_hwk5_webgl/webGLJS/MathHelpers.js",
-					"settings":
-					{
-						"buffer_size": 1743,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1059,
-								1059
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 630.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -688,20 +603,68 @@
 		"selected_items":
 		[
 			[
-				"mathhel",
+				"blender",
+				"blender_exporter.py"
+			],
+			[
+				"read",
+				"README.txt"
+			],
+			[
+				"css",
+				"css/cs315.css"
+			],
+			[
+				"math",
 				"webGLJS/MathHelpers.js"
 			],
 			[
-				"gameeng",
-				"gameJS/GameEngine.js"
+				"light",
+				"gameJS/Light.js"
+			],
+			[
+				"index",
+				"index.html"
 			],
 			[
 				"gamedata",
 				"gameJS/GameData.js"
 			],
 			[
-				"alien",
+				"gamedat",
+				"gameJS/GameData.js"
+			],
+			[
+				"gameobj",
+				"gameJS/GameObject.js"
+			],
+			[
+				"json",
 				"stormhaven/alienPlanetScene.json"
+			],
+			[
+				"input",
+				"gameJS/InputHandler.js"
+			],
+			[
+				"alien",
+				"gameJS/AlienPlanet.js"
+			],
+			[
+				"mathhe",
+				"webGLJS/MathHelpers.js"
+			],
+			[
+				"mathh",
+				"webGLJS/MathHelpers.js"
+			],
+			[
+				"mathhel",
+				"webGLJS/MathHelpers.js"
+			],
+			[
+				"gameeng",
+				"gameJS/GameEngine.js"
 			],
 			[
 				"camera",
@@ -752,20 +715,12 @@
 				"cs315_hwk5_webgl/gameData/fragment_shader.glsl"
 			],
 			[
-				"index",
-				"cs315_hwk5_webgl/index.html"
-			],
-			[
 				"gameengi",
 				"cs315_hwk5_webgl/gameJS/GameEngine.js"
 			],
 			[
 				"gitig",
 				".gitignore"
-			],
-			[
-				"css",
-				"cs315_hwk5_webgl/cs315.css"
 			],
 			[
 				"compi",
@@ -826,10 +781,6 @@
 			[
 				"windowevent",
 				"OgreMain/include/OgreWindowEventUtilities.h"
-			],
-			[
-				"light",
-				"OgreMain/include/OgreLight.h"
 			],
 			[
 				"entity",

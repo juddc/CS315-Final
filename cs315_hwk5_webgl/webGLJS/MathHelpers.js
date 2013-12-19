@@ -89,6 +89,13 @@ function quatAngle(q) {
 }
 
 
+function quatDirection(q) {
+	var dir = [0, 0, 1];
+	vec3.transformQuat(dir, dir, q);
+	return dir;
+}
+
+
 function mat3_to_mat4(m) {
 	return [
 		m[0], m[1], m[2], 0,
@@ -111,6 +118,14 @@ function vec3_swapYZ(vec) {
 	vec[1] = tmp;
 
 	//vec3.transformMat3(vec, vec, rotMatrix);
+	return vec;
+}
+
+
+function vec3_abs(vec) {
+	vec[0] = Math.abs(vec[0]);
+	vec[1] = Math.abs(vec[1]);
+	vec[2] = Math.abs(vec[2]);
 	return vec;
 }
 
@@ -191,3 +206,13 @@ function quatFromEulerAngles(x, y, z) {
 function clamp(val, min, max) {
 	return Math.max(min, Math.min(val, max));
 }
+
+
+
+// http://stackoverflow.com/questions/646628/javascript-startswith
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
+}
+

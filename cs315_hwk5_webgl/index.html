@@ -8,7 +8,7 @@ uniform mat4 uMVMatrix;    // A constant representing the modelview matrix. Used
 uniform mat4 uMVPMatrix;   // A constant representing the combined modelview/projection matrix. We use this for positioning
 uniform mat4 uNormalMatrix;
 
-uniform vec3 uLightPos;    // light position
+uniform vec3 uLightDir;    // light position
 
 attribute vec4 aPosition;  // Per-vertex position information we will pass in
 attribute vec3 aNormal;    // Per-vertex normal information we will pass in.
@@ -37,8 +37,7 @@ void main() {
 
     oNormalMatrix = uNormalMatrix;
 
-    // figure out the light direction in relation to world space
-    oLightDir = normalize(uLightPos - oPosition.xyz);
+    oLightDir = uLightDir;
 
     oNormal = aNormal;
 
@@ -141,18 +140,13 @@ $(document).ready(function() {
 		WebGLSetup(canvas);       // 2. set up WebGL
 		GameEngineSetup(canvas);  // 3. set up GameEngine
 		AlienPlanetSetup();       // 4. set up the demo
+		alien.resetCamera();
 	}
 	else {
 		addErrorMessage("Could not load GameData.js. Did you run data_compiler.py?");
 		$("#game").hide();
 	}
 
-
-	$("#start").click(function() {
-		$("#menu").fadeOut();
-	});
-
-	$("#menu").hide();
 });
 </script>
 </head>
@@ -161,19 +155,23 @@ $(document).ready(function() {
 <!-- error messages can go here. hide by default -->
 <div id="error" style="display:none"></div>
 
-<div align="center" id="game">
-	<div id="menu">
-		<h1>Alien Planet: Stormhaven</h1>
-		<p id="credits">by Judd Cohen</p>
-		<h2 id="controlheader">Controls</h2>
-		<p id="help">
-			<strong>W</strong>: Move forward<br/>
-			<strong>A</strong>: Move left<br/>
-			<strong>S</strong>: Move backwards<br/>
-			<strong>D</strong>: Move right<br/>
-		</p>
-		<button id="start" class="gameControl">Start</button>
+<div id="game">
+	<div id="credits">
+		<div id="title">Alien Planet: Stormhaven</div>
+		<div>by Judd Cohen</div>
 	</div>
+
+	<div id="help">
+		<div id="controlheader">Controls</div>
+		<p>
+			<strong>W, A, S, D</strong>: Move<br/>
+			<strong>R, F</strong>: Zoom in or out<br/>
+			<strong>P</strong>: Reset camera position and orientation<br/>
+			<strong>Click and drag</strong>: Turn camera<br />
+			<strong>Hold shift while moving</strong>: Move faster
+		</p>
+	</div>
+
 	<canvas id="glcanvas" width="800" height="600">
 		If you see this, your browser doesn't support HTML5 canvas elements!
 	</canvas>

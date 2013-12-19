@@ -34,7 +34,7 @@ function GameEngine(canvasNode) {
 	this.mMVPMatrixHandle = null;
 	this.mMVMatrixHandle = null;
 	this.mNormalMatrixHandle = null;
-	this.mLightPosHandle = null;
+	this.mLightDirHandle = null;
 	this.mPositionHandle = null;
 	this.mNormalHandle = null;
 	// material attributes
@@ -63,6 +63,10 @@ function GameEngine(canvasNode) {
 	// all loaded meshes
 	this.mMeshes = {};
 
+	// sky color
+	this.skyColor = [0, 0, 0];
+
+
 	/*
 	 * Main GameEngine setup
 	 */
@@ -86,7 +90,7 @@ function GameEngine(canvasNode) {
 		}
 
 		// basic params
-		gl.clearColor(0.0, 0.0, 0.0, 1.0);
+		gl.clearColor(this.skyColor[0], this.skyColor[1], this.skyColor[2], 1.0);
 		gl.enable(gl.CULL_FACE);
 		gl.enable(gl.DEPTH_TEST);
 
@@ -99,7 +103,7 @@ function GameEngine(canvasNode) {
 
 		// default light
 		this.light = new Light();
-		this.light.position = [0, 0, 3];
+		this.light.setDirection([0, 23, 87]);
 
 		// Load models
 		this.initMeshes();
@@ -160,6 +164,12 @@ function GameEngine(canvasNode) {
 	}
 
 
+	this.setSkyColor = function(color) {
+		this.skyColor = vec3.clone(color);
+		gl.clearColor(this.skyColor[0], this.skyColor[1], this.skyColor[2], 1.0);
+	};
+
+
 	/*
 	 * Add a GameObject to the scene
 	 */
@@ -208,7 +218,7 @@ function GameEngine(canvasNode) {
 		this.mMVPMatrixHandle = gl.getUniformLocation(this.shaderProgramHandle, "uMVPMatrix");
 		this.mMVMatrixHandle = gl.getUniformLocation(this.shaderProgramHandle, "uMVMatrix");
 		this.mNormalMatrixHandle = gl.getUniformLocation(this.shaderProgramHandle, "uNormalMatrix");
-		this.mLightPosHandle = gl.getUniformLocation(this.shaderProgramHandle, "uLightPos");
+		this.mLightDirHandle = gl.getUniformLocation(this.shaderProgramHandle, "uLightDir");
 		this.mPositionHandle = gl.getAttribLocation(this.shaderProgramHandle, "aPosition");
 		this.mNormalHandle = gl.getAttribLocation(this.shaderProgramHandle, "aNormal");
 		// material setting handles
@@ -226,35 +236,7 @@ function GameEngine(canvasNode) {
 
 		for (var i = this.gameObjects.length - 1; i >= 0; i--) {
 			var obj = this.gameObjects[i];
-
-			/*
-			// manipulate the model matrix
-			mat4.identity(this.mModelMatrix);
-
-			// convert rotations from blender's z-up
-			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(180.0), UNIT_Y);
-
-			mat4.translate(this.mModelMatrix, this.mModelMatrix, obj.position);
-			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[0]), UNIT_X);
-			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[1]), UNIT_Y);
-			mat4.rotate(this.mModelMatrix, this.mModelMatrix, deg2rad(obj.rotation[2]), UNIT_Z);
-			*/
-
-			//mat4.identity(this.mModelMatrix);
-			//mat4.translate(this.mModelMatrix, this.mModelMatrix, obj.position);
-
-			//var quatMat = mat3.create();
-			//var q = quat.clone(obj.orientation);
-			//var test = quat.str(q);
-			//q = quat_swapYZ(q);
-			//console.log(test + " --> " + quat.str(q));
-			//mat3.fromQuat(quatMat, q);
-			//mat4.multiply(this.mModelMatrix, this.mModelMatrix, mat3_to_mat4(quatMat));
-
 			mat4.fromRotationTranslation(this.mModelMatrix, obj.orientation, obj.position);
-
-			//mat4_swapYZ(this.mModelMatrix);
-
 			mat4.scale(this.mModelMatrix, this.mModelMatrix, obj.scale);
 			this.drawMesh(this.mMeshes[obj.mesh], obj.ambient, obj.diffuse, obj.specular, obj.shininess);
 		};
@@ -290,7 +272,7 @@ function GameEngine(canvasNode) {
 		gl.uniformMatrix4fv(this.mNormalMatrixHandle, false, this.mNormalMatrix);
 
 		// Pass in light positions
-		gl.uniform3f(this.mLightPosHandle, this.light.position[0], this.light.position[1], this.light.position[2]);
+		gl.uniform3f(this.mLightDirHandle, this.light.direction[0], this.light.direction[1], this.light.direction[2]);
 
 		// pass in the positions
 		gl.enableVertexAttribArray(this.mPositionHandle);

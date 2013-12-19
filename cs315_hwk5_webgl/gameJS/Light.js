@@ -1,5 +1,11 @@
 "use strict";
 
 function Light() {
-    this.position = [0, 0, 0];
+    this.direction = [0, 0, 1];
+
+
+    this.setDirection = function(dir) {
+    	vec3.normalize(dir, dir);
+    	this.direction = dir;
+    };
 }

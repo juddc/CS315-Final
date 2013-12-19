@@ -14,49 +14,31 @@ function AlienPlanet() {
 	this.camVert = 0;
 	this.lastMousePos = vec2.create();
 
+	this.skyColorDay = [1, 0.5, 0.2];
+	this.skyColorNight = [0.1, 0.2, 0.3];
+	this.sunSpeed = 15;
+	this.sunAngle = 0;
+
+	this.lanternTimer = 0;
+
 
 	this.init = function() {
 		// tell the input system we want all input events (requires inputEvent(key,evt) method)
 		input.addUpdateObject(this);
 
-		var sceneFile = 'alienPlanetScene.json';
-		//var sceneFile = 'simpleScene.json';
-
-		this.scene = loadJSONScene(sceneFile);
-
-		/*
-		// create the ball
-		this.ball = new GameObject("ball", "Ball");
-		this.ball.collider = new CircleCollider(this.ball);
-		this.ball.position = [0, 0, 0];
-		engine.addGameObject(this.ball);
-
-		// create a block
-		for (var i=0; i<2; i++) {
-			var block = new GameObject("block_" + i, "FancyCube");
-			block.collider = new RectangleCollider(block);
-			block.position = [0, 0, i];
-			engine.addGameObject(block);
-			this.blocks.push(block);
-		}
-		this.blocks[0].position = [0, 0, -5];
-		this.blocks[1].position = [0, 0, 5];
-
-		// create the paddles
-		this.paddle1 = new GameObject("paddle1", "Paddle");
-		this.paddle1.collider = new RectangleCollider(this.paddle1, 0.6552, 4.608);
-		this.paddle1.position = [11, 0, 0];
-		this.paddle1.rotation = [0, 180, 0];
-		engine.addGameObject(this.paddle1);
-
-		this.paddle2 = new GameObject("paddle2", "Paddle");
-		this.paddle2.collider = new RectangleCollider(this.paddle2, 0.6552, 4.608);
-		this.paddle2.position = [-11, 0, 0];
-		engine.addGameObject(this.paddle2);
-		*/
+		this.scene = loadJSONScene('alienPlanetScene.json');
 
 		// tell the engine we want update() to get called every frame
 		engine.addUpdateObject(this);
+	};
+
+
+	this.resetCamera = function() {
+		this.camHoriz = -257.17004776000977;
+		this.camVert = 70.87000846862793;
+		engine.camera.position = [5.635998493991792, 33.160001266980544, -35.63893827940954];
+		engine.camera.orientation = [-0.45300182700157166, -0.6256833672523499, -0.37243011593818665, -0.5143982172012329];
+		engine.camera.recalculate();
 	};
 
 
@@ -83,17 +65,17 @@ function AlienPlanet() {
 		if (input.keyIsDown("S")) {
 			movementVec[2] -= this.camSpeed * timeSinceLastFrame;
 		}
-		if (input.keyIsDown("D")) {
-			movementVec[0] -= this.camSpeed * timeSinceLastFrame;
-		}
 		if (input.keyIsDown("A")) {
-			movementVec[0] += this.camSpeed * timeSinceLastFrame;
+			movementVec[1] -= this.camSpeed * timeSinceLastFrame;
 		}
-		if (input.keyIsDown("Space")) {
+		if (input.keyIsDown("D")) {
 			movementVec[1] += this.camSpeed * timeSinceLastFrame;
 		}
+		if (input.keyIsDown("Space")) {
+			movementVec[0] += this.camSpeed * timeSinceLastFrame;
+		}
 		if (input.keyIsDown("C")) {
-			movementVec[1] -= this.camSpeed * timeSinceLastFrame;
+			movementVec[0] -= this.camSpeed * timeSinceLastFrame;
 		}
 		// zooming/fov
 		if (input.keyIsDown("F")) {
@@ -104,11 +86,7 @@ function AlienPlanet() {
 		}
 
 		if (input.keyIsDown("P")) {
-			this.camHoriz = -86.63001537322998;
-			this.camVert = -3.1150221824645996;
-			engine.camera.position = [-45.015682220458984, 53.40355682373047, -19.42580795288086];
-			engine.camera.orientation = [0.5274806022644043, 0.4709184765815735, -0.4988862872123718, 0.5011112093925476];
-			engine.camera.recalculate();
+			this.resetCamera();
 		}
 
 		vec3.transformQuat(movementVec, [movementVec[0], movementVec[2], -movementVec[1]], engine.camera.orientation);
@@ -119,13 +97,60 @@ function AlienPlanet() {
 		var mouseDelta = vec2.create();
 		vec2.sub(mouseDelta, input.mousePos, this.lastMousePos);
 
+
+		// lantern animation
+		this.lanternTimer += timeSinceLastFrame;
+		if (this.lanternTimer > 2.5) this.lanternTimer = -2.5;
+
+		for (var i = this.scene.length - 1; i >= 0; i--) {
+			var obj = this.scene[i];
+			if (obj.name.startsWith("Sphere")) {
+				obj.position[1] += 0.5 * timeSinceLastFrame * this.lanternTimer * 0.4;
+			}
+		};
+
+
+		// camera movement
 		if (input.keyIsDown("MouseButton")) {
 			this.camHoriz += mouseDelta[0] * 5 * timeSinceLastFrame;
-			this.camVert += mouseDelta[1] * 5 * timeSinceLastFrame;
+			this.camVert -= mouseDelta[1] * 5 * timeSinceLastFrame;
 
-			engine.camera.orientation = quatFromEulerAngles(90, this.camVert, this.camHoriz);
+			this.camHoriz %= 360;
+			this.camVert %= 360;
+
+			var q = quat.create();
+			quat.rotateY(q, q, deg2rad(this.camHoriz));
+			quat.rotateZ(q, q, deg2rad(this.camVert));
+			engine.camera.orientation = q;
+
 			engine.camera.recalculate();
 		}
+
+		// sun direction and sky light
+		var sunRot = quatFromEulerAngles(0, this.sunAngle, 0);
+		var sunScalar = this.sunAngle / 360;
+		var sky = vec3.clone(engine.skyColor);
+		if (sunScalar < 0.05) {
+			var t = (sunScalar * 10) + 0.5;
+			vec3.lerp(sky, this.skyColorNight, this.skyColorDay, t);
+		}
+		else if (sunScalar > 0.95) {
+			var t = (sunScalar - 0.95) * 10;
+			vec3.lerp(sky, this.skyColorNight, this.skyColorDay, t);
+		}
+		else if (sunScalar >= 0.05 || sunScalar <= 0.5) {
+			var t = (sunScalar * 2);
+			vec3.lerp(sky, this.skyColorDay, this.skyColorNight, t);
+		}
+		else if (sunScalar > 0.5 || sunScalar <= 0.95) {
+			var t = (sunScalar * 2) - 1.0;
+			vec3.lerp(sky, this.skyColorNight, this.skyColorDay, t);
+		}
+		engine.setSkyColor(sky);
+		engine.light.setDirection(quatDirection(sunRot));
+
+		this.sunAngle += this.sunSpeed * timeSinceLastFrame;
+		this.sunAngle %= 360;
 
 		// save the mouse pos so we can get a delta next frame
 		this.lastMousePos = vec2.clone(input.mousePos);
