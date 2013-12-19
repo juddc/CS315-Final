@@ -1,3 +1,4 @@
+"use strict";
 
 function Camera(gameEngine) {
     // keep a reference to the GameEngine object
@@ -8,7 +9,7 @@ function Camera(gameEngine) {
     this.mProjectionMatrix = mat4.create();
 
     // camera config
-    this.position = [0.0, 10.0, 3.0];
+    this.position = [0, 15, 0.1];
     this.lookAt = [0.0, 0.0, 0.0];
     this.up = [0.0, 1.0, 0.0];
     this.near = 1.0;
@@ -17,12 +18,15 @@ function Camera(gameEngine) {
 
 
     // must call recalculate after making any changes to the camera config
-    this.recalculate = function() {
+    this.recalculate = function(width, height) {
+        if (width == null) width = this.gameEngine.canvas.clientWidth;
+        if (height == null) height = this.gameEngine.canvas.clientHeight;
+
         // view matrix:
         mat4.lookAt(this.mViewMatrix, this.position, this.lookAt, this.up);
 
         // projection matrix:
-        var ratio = this.gameEngine.canvas.clientWidth / this.gameEngine.canvas.clientHeight;
+        var ratio = width / height;
         mat4.perspective(this.mProjectionMatrix, this.fovy, ratio, this.near, this.far);
     };
 
@@ -37,3 +41,5 @@ function Camera(gameEngine) {
     };
 
 }
+
+

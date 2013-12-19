@@ -109,13 +109,15 @@ void main() {
 
 <script>
 
+/*
+ * Game entry point and initialization
+ */
 $(document).ready(function() {
 	// check if GameData has been parsed and loaded correctly
 	if (typeof DATA != 'undefined') {
 		// get a reference to the canvas DOM node
 		var canvas = $('#glcanvas')[0];
 		canvas.width = document.body.clientWidth;
-		canvas.height = document.body.clientHeight;
 		//
 		// start the game
 		//
@@ -128,6 +130,7 @@ $(document).ready(function() {
 		addErrorMessage("Could not load GameData.js. Did you run data_compiler.py?");
 		$("#game").hide();
 	}
+
 });
 
 </script>
@@ -138,10 +141,32 @@ $(document).ready(function() {
 <div id="error" style="display:none"></div>
 
 <div align="center" id="game">
+	<div id="menu">
+		<h1>Breakout Clash!</h1>
+		<p id="credits">by Paul Makl and Judd Cohen</p>
+		<h2 id="controlheader">Controls</h2>
+		<p id="help">
+			<em>Player 1</em>:<br />
+				<strong>A</strong>: Move paddle up<br/>
+				<strong>Z</strong>: Move paddle down<br/>
+			<br />
+			<em>Player 2</em>:<br/>
+				<strong>K</strong>: Move paddle up<br/>
+				<strong>M</strong>: Move paddle down<br/>
+			<br />
+			<em>Adjust camera:</em><br />
+				<strong>T</strong>: Move camera back<br/>
+				<strong>G</strong>: Move camera forward<br/>
+		</p>
+		<button id="start" class="gameControl">Start</button>
+	</div>
 	<canvas id="glcanvas" width="800" height="600">
 		If you see this, your browser doesn't support HTML5 canvas elements!
 	</canvas>
-	<p id="credits">by Judd Cohen</p>
+	<div id="credits">by Judd Cohen</p>
+
+	</div>
+	
 </div>
 
 </body>
