@@ -8,6 +8,10 @@
 *.so
 *.pyc
 
+# The entire contents of the stormhaven folder are also compiled/exported from Blender,
+# so that should be skipped too
+cs315_hwk5_webgl/stormhaven/*
+
 # GameData.js gets compiled from several source files. Better to keep this out of Git.
 # (use data_compiler.js to produce this file)
 GameData.js
